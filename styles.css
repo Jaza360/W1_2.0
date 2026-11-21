@@ -1,0 +1,281 @@
+/* A small reset so the page starts consistently. Leave these three rules. */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.6; color: #172554; background: #ffffff; }
+img { max-width: 100%; height: auto; }
+
+/* Your palette. Change the values, then use the variables below. */
+:root {
+  --accent: #166534;
+  --accent-soft: #eaf5ee;
+}
+
+/* Your styles start here. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #24352c;
+  background: #f4f7f5;
+}
+
+header,
+main,
+footer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+nav a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: #385144;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+section {
+  min-width: 0;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid #e0e8e2;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgb(25 55 37 / 4%);
+  scroll-margin-top: 1.5rem;
+}
+
+#about {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 1rem 3rem;
+  background: linear-gradient(135deg, #eaf5ee, #ffffff);
+}
+
+#about h1,
+#about p {
+  grid-column: 1;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #153d29;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  max-width: 12ch;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+}
+
+h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.8rem;
+}
+
+h3 {
+  margin: 2rem 0 1rem;
+  font-size: 1.25rem;
+}
+
+#about > p:first-of-type {
+  color: #52685a;
+  font-size: 1.1rem;
+}
+
+#about img {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  justify-self: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #e7ede9;
+}
+
+label {
+  display: block;
+  margin: 1.25rem 0 0.5rem;
+  color: #344e3e;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd8cf;
+  border-radius: 12px;
+  color: #24352c;
+  background: #fafcfb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:hover,
+select:hover {
+  border-color: #7b9c87;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgb(22 101 52 / 10%);
+}
+
+button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  background: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background: #104c27;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+}
+
+#prices > p:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+
+#total {
+  color: var(--accent);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+#message {
+  color: #52685a;
+  font-size: 0.95rem;
+}
+
+#message:empty {
+  display: none;
+}
+
+footer {
+  margin-top: 2rem;
+  color: #617568;
+  font-size: 0.9rem;
+}
+
+footer p {
+  padding: 1.5rem 0;
+  border-top: 1px solid #dce5df;
+}
+
+@media (max-width: 700px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  #about {
+    grid-template-columns: 1fr;
+  }
+
+  #about img {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 280px;
+    margin-top: 1rem;
+  }
+
+  header {
+    gap: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none;
+  }
+}
+
+/* Phone width adjustments. */
+input, select, button { max-width: 100%; }
+nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; }
+header, main, footer { padding: 0 1rem; }
